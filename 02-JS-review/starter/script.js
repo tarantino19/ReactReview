@@ -142,3 +142,81 @@ function getBooks() {
 function getBook(id) {
 	return data.find((d) => d.id === id);
 }
+
+const book = getBook(3);
+
+//destructuring arrays, relies on order of elements
+
+// const primaryGenre = genres[0];
+// const secondaryGenre = genres[1];
+
+// console.log(primaryGenre, secondaryGenre);
+
+//destructured version
+
+// const [primaryGenre, secondaryGenre] = genres;
+
+// console.log(primaryGenre, secondaryGenre);
+
+// REST SPREAD OPERATOR
+
+// const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
+
+// console.log(otherGenres);
+
+const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
+	book;
+
+// console.log(author, title, pages, publicationDate, genres, hasMovieAdaptation);
+
+//ternary operator - results in a value
+
+// const pagesRange = pages > 1000 ? `over a thousand` : `less than 1000`;
+
+// pagesRange;
+
+// console.log(`The book has ${pagesRange} page`);
+
+//if condition is true dot he first one, otherwise dot he second one
+// i can also put "" empty string as a value
+//thing to remember is ternary operator returns a value, so we put it in a variable
+
+//Short Circuiting and Logical Operators
+// && || returning the first value
+
+// console.log(hasMovieAdaptation && "This book has a movie");
+// //if hasmovieadaptation is true, then it will defailt to the &&
+
+// //works in truthy and false value - false, 0, null
+// console.log("jonas" && "some string here");
+// //truthy coz string defaults into a truthy value
+
+// console.log(0 && "some string here");
+// //defaults to 0 w/c is the falsy value "the some string here wont run"
+
+// // OR OPERATOR, best for default values
+// //noalish ??
+
+// const spanishTranslatedBook = book.translations.spanish || `not a spanish book`;
+
+// spanishTranslatedBook;
+
+//OPTIONAL CHAINING
+
+// function getTotalReviewCount(book) {
+// 	const goodreads = book.reviews?.goodreads?.reviewsCount;
+// 	const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+// 	return goodreads + librarything;
+// }
+
+// console.log(getTotalReviewCount(book));
+//doesht have librarything - that's why undefiend
+//what to do? optional chaining - do it optionally - seeabove  "?"
+//we get Nan - were adding undefined kase
+// thats why we set a default value- maybe a 0
+// whenever were not sure value in an object is not there - if value does not exist
+// use when we're not sure about the availability of the data we are receiving
+
+// MAP FILTER REDUCE DOES NOT MUTATE THEN ORIGINAL ARRAY - IT CREATES A NEW ONE
+
+//ARRAY MAP METHOD
